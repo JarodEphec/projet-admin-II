@@ -1,0 +1,13 @@
+$TTL 1d ;
+@ IN SOA ns.2TM1-2.ephec-ti.be. admin.ephec-ti.be. (
+        2000 ; serial
+        1d ; refresh (1 day)
+        2h ; retry time in case of a problem (2 hours)
+        4w ; expiration time (4 weeks)
+        86400 ; minimum (1 day)
+ )
+;
+@       IN      NS      ns1.2TM1-2.ephec-ti.be.
+;       IN      NS      ns2.2TM1-2.ephec-ti.be.
+ns1     IN      A       176.96.231.200
+web     IN      A       172.17.0.3
