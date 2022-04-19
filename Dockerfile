@@ -1,9 +1,5 @@
-FROM alpine:latest
+FROM ubuntu/bind9:latest
 
-RUN apk --update add bind bind-dnssec-tools
+RUN apk
 
 EXPOSE 53
-
-VOLUME ["/etc/bind", "/var/lib/bind"]
-
-CMD ["/usr/sbin/named", "-f", "-g"]
