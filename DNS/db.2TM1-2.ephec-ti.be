@@ -8,7 +8,7 @@ $TTL 86400 ; 1 day
         86400 ; minimum (1 day)
  )
 ;
-@       IN      NS      ns1.2TM1-2.ephec-ti.be.
+@       IN      NS      ns.2TM1-2.ephec-ti.be.
 ;       IN      NS      ns2.2TM1-2.ephec-ti.be.
 @	IN	A	176.96.231.201
 ns1     IN      A       176.96.231.201
