@@ -11,5 +11,5 @@ $TTL 86400 ; 1 day
 @       IN      NS      ns.2TM1-2.ephec-ti.be.
 ;       IN      NS      ns2.2TM1-2.ephec-ti.be.
 @	IN	A	176.96.231.201
-ns1     IN      A       176.96.231.201
+ns      IN      A       176.96.231.201
 web     IN      A       176.96.231.202
