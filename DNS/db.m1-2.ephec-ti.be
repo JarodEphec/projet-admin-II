@@ -13,5 +13,8 @@ $TTL 86400 ; 1 day
 @       IN      A       176.96.231.201
 ns      IN      A       176.96.231.201
 www     IN      A       176.96.231.202
-mail    IN      A       176.96.231.203
-b2b     IN      A       176.96.231.204
+b2b     IN      A       176.96.231.203
+mail    IN      A       176.96.231.204
+
+smtp    IN      CNAME   mail
+imap    IN      CNAME   mail
