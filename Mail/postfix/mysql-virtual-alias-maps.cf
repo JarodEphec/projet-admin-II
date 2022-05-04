@@ -1,0 +1,5 @@
+user = admin
+password = validerSVP
+hosts = 172.17.0.3
+dbname = woodyToys
+query = SELECT destination FROM aliases WHERE source='%s'
