@@ -1,4 +1,4 @@
 password = validerSVP
-hosts = 172.17.0.3
+hosts = 176.96.231.199
 dbname = woodyToys
 query = SELECT email FROM users WHERE email='%s'
