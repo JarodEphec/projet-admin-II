@@ -1,5 +1,5 @@
 CREATE DATABASE woodyToys;
-CREATE USER 'admin'@'127.0.0.1' IDENTIFIED BY 'validerSVP';
+CREATE USER 'admin'@'176.96.231.200' IDENTIFIED BY 'validerSVP';
 GRANT SELECT ON woodyToys.* TO 'admin'@'127.0.0.1';
 --recharge la db
 FLUSH PRIVILEGES;
