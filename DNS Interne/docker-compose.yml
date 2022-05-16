@@ -40,16 +40,16 @@ services:
       context: ./user/secretariat
       dockerfile: Dockerfile
     networks:
-      net_secretaire:
+      net_Secretariat:
         ipv4_address: 198.20.0.2
-    container_name: secretaire
+    container_name: secretariat
 
   direction:
     build:
       context: ./user/direction
       dockerfile: Dockerfile
     networks:
-      net_direction:
+      net_Direction:
         ipv4_address: 198.20.1.2
     container_name: direction
 
@@ -58,7 +58,7 @@ services:
       context: ./user/atelier
       dockerfile: Dockerfile
     networks:
-      net_atelier:
+      net_Atelier:
         ipv4_address: 198.20.2.2
     container_name: atelier
 
@@ -67,7 +67,7 @@ services:
       context: ./user/compta
       dockerfile: Dockerfile
     networks:
-      net_compta:
+      net_Compta:
         ipv4_address: 198.20.3.2
     container_name: compta
     
@@ -76,7 +76,7 @@ services:
       context: ./user/hangar
       dockerfile: Dockerfile
     networks:
-      net_hangar:
+      net_Hangar:
         ipv4_address: 198.20.4.2
     container_name: hangar
 
