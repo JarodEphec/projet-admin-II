@@ -76,7 +76,7 @@ services:
       context: ./user/hangar
       dockerfile: Dockerfile
     networks:
-      compta_network:
+      hangar_network:
         ipv4_address: 198.20.4.2
     container_name: hangar
 
