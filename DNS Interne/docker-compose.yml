@@ -1,0 +1,134 @@
+version: "2.2" # optional since v1.27.0
+
+services:
+  resolver:
+    build:
+      context: ./Resolver
+      dockerfile: Dockerfile
+    networks:
+      local_network:
+        ipv4_address: 192.168.0.5
+    container_name: resolv
+
+  soa_interne:
+    build:
+      context: ./Soa interne
+      dockerfile: Dockerfile
+
+    networks:
+      local_network:
+        ipv4_address: 192.168.0.1
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    container_name: soa
+
+  intranet:
+    build:
+      context: ./Intranet
+      dockerfile: Dockerfile
+
+    networks:
+      local_network:
+        ipv4_address: 192.168.0.4
+    ports:
+      - "8080:80"
+    container_name: intranet
+
+  secretariat:
+    build:
+      context: ./user/secretariat
+      dockerfile: Dockerfile
+    networks:
+      secretaire_network:
+        ipv4_address: 198.20.0.2
+    container_name: secretaire
+
+  direction:
+    build:
+      context: ./user/direction
+      dockerfile: Dockerfile
+    networks:
+      direction_network:
+        ipv4_address: 198.20.1.2
+    container_name: direction
+
+  atelier:
+    build:
+      context: ./user/atelier
+      dockerfile: Dockerfile
+    networks:
+      atelier_network:
+        ipv4_address: 198.20.2.2
+    container_name: atelier
+
+  compta:
+    build:
+      context: ./user/compta
+      dockerfile: Dockerfile
+    networks:
+      compta_network:
+        ipv4_address: 198.20.3.2
+    container_name: compta
+    
+  hangar:
+    build:
+      context: ./user/hangar
+      dockerfile: Dockerfile
+    networks:
+      compta_network:
+        ipv4_address: 198.20.4.2
+    container_name: hangar
+
+  commerciaux:
+    build:
+      context: ./user/commerciaux
+      dockerfile: Dockerfile
+    networks:
+      commerciaux_network:
+        ipv4_address: 198.20.5.2
+    container_name: commerciaux
+
+networks:
+  local_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/24
+          gateway: 192.168.0.1
+  net_Secretariat:
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.20.0.0/24
+          gateway: 198.20.0.1
+  net_Direction:
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.20.1.0/24
+          gateway: 198.20.1.1
+  net_Atelier:
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.20.2.0/24
+          gateway: 198.20.2.1
+  net_Compta:
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.20.3.0/24
+          gateway: 198.20.3.1
+  net_Hangar:
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.20.4.0/24
+          gateway: 198.20.4.1
+  net_Commerciaux:
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.20.5.0/24
+          gateway: 198.20.5.1
