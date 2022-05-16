@@ -12,7 +12,7 @@ services:
 
   soa_interne:
     build:
-      context: ./Soa interne
+      context: ./Soa_interne
       dockerfile: Dockerfile
 
     networks:
@@ -40,7 +40,7 @@ services:
       context: ./user/secretariat
       dockerfile: Dockerfile
     networks:
-      secretaire_network:
+      net_secretaire:
         ipv4_address: 198.20.0.2
     container_name: secretaire
 
@@ -49,7 +49,7 @@ services:
       context: ./user/direction
       dockerfile: Dockerfile
     networks:
-      direction_network:
+      net_direction:
         ipv4_address: 198.20.1.2
     container_name: direction
 
@@ -58,7 +58,7 @@ services:
       context: ./user/atelier
       dockerfile: Dockerfile
     networks:
-      atelier_network:
+      net_atelier:
         ipv4_address: 198.20.2.2
     container_name: atelier
 
@@ -67,7 +67,7 @@ services:
       context: ./user/compta
       dockerfile: Dockerfile
     networks:
-      compta_network:
+      net_compta:
         ipv4_address: 198.20.3.2
     container_name: compta
     
@@ -76,7 +76,7 @@ services:
       context: ./user/hangar
       dockerfile: Dockerfile
     networks:
-      hangar_network:
+      net_hangar:
         ipv4_address: 198.20.4.2
     container_name: hangar
 
@@ -85,7 +85,7 @@ services:
       context: ./user/commerciaux
       dockerfile: Dockerfile
     networks:
-      commerciaux_network:
+      net_Commerciaux:
         ipv4_address: 198.20.5.2
     container_name: commerciaux
 
