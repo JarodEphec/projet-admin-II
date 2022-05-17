@@ -1,26 +1,15 @@
-# See /usr/share/postfix/main.cf.dist for a commented, more complete version
 
-# Debian specific:  Specifying a file name will cause the first
-# line of that file to be used as the name.  The Debian default
-# is /etc/mailname.
-#myorigin = /etc/mailname
 
 smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
 biff = no
 
-# appending .domain is the MUA's job.
+
 append_dot_mydomain = no
-
-# Uncomment the next line to generate "delayed mail" warnings
-#delay_warning_time = 4h
-
 readme_directory = no
 
-# See http://www.postfix.org/COMPATIBILITY_README.html -- default to 2 on
-# fresh installs.
 compatibility_level = 2
 
-# TLS parameters
+# Configuration d'SSL/TLS
 smtpd_tls_cert_file=/etc/letsencrypt/live/m1-2.ephec-ti.be/fullchain.pem
 smtpd_tls_key_file=/etc/letsencrypt/live/m1-2.ephec-ti.be/privkey.pem
 smtpd_use_tls=yes
@@ -30,13 +19,11 @@ smtpd_tls_security_level = may
 smtpd_sasl_security_options = noanonymous, noplaintext
 smtpd_sasl_tls_security_options = noanonymous
 
-# Authentication
+# Activation d'SMTP et envoie à dovecot
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 
-# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
-# information on enabling SSL in the smtp client.
 
 # Restrictions
 smtpd_helo_restrictions =
@@ -61,9 +48,8 @@ smtpd_relay_restrictions =
         permit_sasl_authenticated,
         defer_unauth_destination
 
-# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
-# information on enabling SSL in the smtp client.
 
+# Configuration général de postfix
 myhostname = m1-2.ephec-ti.be
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
@@ -77,16 +63,16 @@ recipient_delimiter = +
 inet_interfaces = all
 inet_protocols = all
 
-# Handing off local delivery to Dovecot's LMTP, and telling it where to store mail
+# Dit que c'est dovecot qui s'occupe de l'envoie de mail en local
 virtual_transport = lmtp:unix:private/dovecot-lmtp
 
-# Virtual domains, users, and aliases
+# Connexion à la db
 virtual_mailbox_domains = mysql:/etc/postfix/mysql-virtual-mailbox-domains.cf
 virtual_mailbox_maps = mysql:/etc/postfix/mysql-virtual-mailbox-maps.cf
 virtual_alias_maps = mysql:/etc/postfix/mysql-virtual-alias-maps.cf,
         mysql:/etc/postfix/mysql-virtual-email2email.cf
 
-# Even more Restrictions and MTA params
+# Restrictions + paramètres de MTA
 disable_vrfy_command = yes
 strict_rfc821_envelopes = yes
 #smtpd_etrn_restrictions = reject
@@ -103,7 +89,7 @@ smtpd_recipient_limit = 40
 minimal_backoff_time = 180s
 maximal_backoff_time = 3h
 
-# Reply Rejection Codes
+# Codes d'erreurs
 invalid_hostname_reject_code = 550
 non_fqdn_reject_code = 550
 unknown_address_reject_code = 550
