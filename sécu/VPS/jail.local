@@ -1,0 +1,14 @@
+[sshd]
+enabled = true
+maxretry = 10
+findtime = 120
+bantime = 1200
+
+[sshd-ddos]
+enabled = true
+
+[recidive]
+enabled = true
+
+[apache]
+enabled = true
