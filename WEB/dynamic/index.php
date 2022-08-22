@@ -18,7 +18,7 @@ echo "Connection réussie" . "<br>";
 if ($result->num_rows >= 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "- id de commande: ". $row["commande_id"]."<br>". " - Jouet: " . $row["toy_name"]."<br>". "- Client: " . $row["user_name>
+    echo "- id de commande: ". $row["commande_id"]."<br>". " - Jouet: " . $row["toy_name"]."<br>". "- Client: " . $row["user_name"]. "<br>";
   }
 } else {
   echo "0 results";
@@ -26,3 +26,4 @@ if ($result->num_rows >= 0) {
 
 $conn->close();
 ?>
+
